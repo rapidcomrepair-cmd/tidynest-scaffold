@@ -9,45 +9,78 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ background: N, minHeight: 'calc(100vh - 68px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '80px 5%' }}>
-        <div style={{ maxWidth: 820 }}>
+      <section style={{ background: N, minHeight: 'calc(100vh - 68px)', display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', padding: '80px 5%', gap: 60 }}>
+        {/* LEFT */}
+        <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,255,71,0.12)', border: '1px solid rgba(212,255,71,0.25)', borderRadius: 100, padding: '6px 14px', marginBottom: 32 }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: L, display: 'inline-block' }} />
             <span style={{ fontSize: '0.78rem', fontWeight: 600, color: L, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Professional Home Cleaning</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(3rem,7vw,5.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 28 }}>
+          <h1 style={{ fontSize: 'clamp(2.8rem,5.5vw,5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 24 }}>
             Your home,<br />
             <span style={{ color: L }}>spotlessly</span> clean.
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, maxWidth: 480, marginBottom: 44 }}>
+          <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, maxWidth: 440, marginBottom: 44 }}>
             Expert cleaners at your door. Reliable, thorough, and tailored to your schedule — so you can focus on what matters.
           </p>
-          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <Link href="/book" style={{ background: L, color: N, fontWeight: 700, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block', transition: 'opacity 0.15s' }}>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 52 }}>
+            <Link href="/book" style={{ background: L, color: N, fontWeight: 700, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block' }}>
               Book a Clean
             </Link>
-            <Link href="/services" style={{ background: 'rgba(255,255,255,0.07)', color: '#fff', fontWeight: 500, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block', border: '1px solid rgba(255,255,255,0.12)', transition: 'background 0.15s' }}>
+            <Link href="/services" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', fontWeight: 600, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block', border: '1px solid rgba(255,255,255,0.2)' }}>
               See services
             </Link>
           </div>
+
+          {/* service chips */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+            {[
+              { icon: '🧹', label: 'Standard Clean', from: 'From $99' },
+              { icon: '✨', label: 'Deep Clean', from: 'From $179' },
+              { icon: '📦', label: 'Move-In / Out', from: 'From $249' },
+              { icon: '🔁', label: 'Recurring', from: 'Save up to 20%' },
+            ].map((s) => (
+              <div key={s.label} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 14, padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
+                <span style={{ fontSize: 18 }}>{s.icon}</span>
+                <div>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#fff' }}>{s.label}</div>
+                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', marginTop: 2 }}>{s.from}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* floating service chips */}
-        <div style={{ display: 'flex', gap: 12, marginTop: 64, flexWrap: 'wrap' }}>
-          {[
-            { icon: '🧹', label: 'Standard Clean', from: '$99' },
-            { icon: '✨', label: 'Deep Clean', from: '$179' },
-            { icon: '📦', label: 'Move-In / Out', from: '$249' },
-            { icon: '🔁', label: 'Recurring', from: 'Save 20%' },
-          ].map((s) => (
-            <div key={s.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 14, padding: '14px 20px', display: 'flex', alignItems: 'center', gap: 12 }}>
-              <span style={{ fontSize: 20 }}>{s.icon}</span>
-              <div>
-                <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#fff' }}>{s.label}</div>
-                <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', marginTop: 1 }}>{s.from}</div>
-              </div>
+        {/* RIGHT — visual panel */}
+        <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 16 }}>
+          {/* main card */}
+          <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 28, padding: '40px 36px', backdropFilter: 'blur(10px)' }}>
+            <div style={{ fontSize: '3.5rem', marginBottom: 20 }}>🏡</div>
+            <h3 style={{ fontWeight: 800, fontSize: '1.4rem', color: '#fff', letterSpacing: '-0.02em', marginBottom: 12 }}>Your home, our expertise</h3>
+            <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 28 }}>
+              Trusted by 500+ homeowners. Every clean is backed by our 100% satisfaction guarantee.
+            </p>
+            <div style={{ display: 'flex', gap: 10 }}>
+              {['Insured', 'Background-checked', 'Eco-friendly'].map((tag) => (
+                <span key={tag} style={{ fontSize: '0.7rem', fontWeight: 600, color: T, background: 'rgba(0,201,167,0.12)', border: '1px solid rgba(0,201,167,0.25)', borderRadius: 100, padding: '4px 10px' }}>{tag}</span>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* floating stat cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            {[
+              { num: '4.9★', label: 'Average rating', color: L },
+              { num: '500+', label: 'Homes cleaned', color: T },
+              { num: '100%', label: 'Satisfaction guarantee', color: '#A78BFA' },
+              { num: '<2 min', label: 'To book online', color: L },
+            ].map((s) => (
+              <div key={s.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 18, padding: '20px 20px' }}>
+                <div style={{ fontWeight: 800, fontSize: '1.5rem', color: s.color, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.num}</div>
+                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.45)', marginTop: 6, fontWeight: 500 }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

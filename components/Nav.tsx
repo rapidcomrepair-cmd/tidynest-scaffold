@@ -37,7 +37,7 @@ export default function Nav() {
         </span>
       </Link>
 
-      <ul className="hidden md:flex list-none items-center gap-1">
+      <ul className="hidden md:flex list-none items-center gap-2">
         {links.map((link) => (
           <li key={link.href}>
             <Link
