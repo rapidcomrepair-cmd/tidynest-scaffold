@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
+
+export const dynamic = 'force-dynamic'
 import { z } from 'zod'
 import { supabase } from '@/lib/supabase'
 
@@ -36,7 +38,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true }, { status: 201 })
   } catch (err) {
     if (err instanceof z.ZodError) {
-      return NextResponse.json({ error: 'Invalid request data', details: err.errors }, { status: 400 })
+      return NextResponse.json({ error: 'Invalid request data', details: err.issues }, { status: 400 })
     }
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
