@@ -9,41 +9,37 @@ export default function HomePage() {
   return (
     <>
       <style>{`
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 56px; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
         .chips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .stats-strip { display: grid; grid-template-columns: repeat(4,1fr); }
         .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
         .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
         .stat-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        @media (max-width: 768px) {
-          .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-          .hero-right { display: none; }
-          .chips-grid { grid-template-columns: 1fr 1fr; }
-          .stats-strip { grid-template-columns: 1fr 1fr; gap: 1px; background: #E4E6EA; }
-          .stats-strip > div { background: #fff; }
+        @media (max-width: 900px) {
+          .hero-grid { grid-template-columns: 1fr; }
+          .hero-right { display: none !important; }
           .why-grid { grid-template-columns: 1fr 1fr; }
           .reviews-grid { grid-template-columns: 1fr; }
+          .stats-strip { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 480px) {
           .chips-grid { grid-template-columns: 1fr; }
           .why-grid { grid-template-columns: 1fr; }
-          .stats-strip { grid-template-columns: 1fr 1fr; }
         }
       `}</style>
 
       {/* ── HERO ── */}
-      <section style={{ background: N, minHeight: 'calc(100vh - 68px)', padding: '60px 5%', display: 'flex', alignItems: 'center' }}>
+      <section style={{ background: N, height: 'calc(100vh - 68px)', padding: '0 5%', display: 'flex', alignItems: 'center' }}>
         <div className="hero-grid" style={{ width: '100%', maxWidth: 1200, margin: '0 auto' }}>
 
           {/* LEFT */}
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {/* pill */}
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,255,71,0.12)', border: '1px solid rgba(212,255,71,0.25)', borderRadius: 100, padding: '6px 14px', marginBottom: 24, alignSelf: 'flex-start' }}>
-              <span style={{ width: 7, height: 7, borderRadius: '50%', background: L, display: 'inline-block', boxShadow: `0 0 0 3px rgba(212,255,71,0.25)` }} />
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '40px 0' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,255,71,0.12)', border: '1px solid rgba(212,255,71,0.25)', borderRadius: 100, padding: '6px 14px', marginBottom: 28, alignSelf: 'flex-start' }}>
+              <span style={{ width: 7, height: 7, borderRadius: '50%', background: L, display: 'inline-block', boxShadow: '0 0 0 3px rgba(212,255,71,0.25)' }} />
               <span style={{ fontSize: '0.78rem', fontWeight: 600, color: L, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Professional Home Cleaning</span>
             </div>
 
-            <h1 style={{ fontSize: 'clamp(2.6rem,4.5vw,4.4rem)', fontWeight: 800, color: '#fff', lineHeight: 1.06, letterSpacing: '-0.03em', marginBottom: 20 }}>
+            <h1 style={{ fontSize: 'clamp(2.8rem,4vw,4.6rem)', fontWeight: 800, color: '#fff', lineHeight: 1.06, letterSpacing: '-0.03em', marginBottom: 20 }}>
               Your home,<br />
               <span style={{ color: L }}>spotlessly</span> clean.
             </h1>
@@ -52,7 +48,7 @@ export default function HomePage() {
               Expert cleaners at your door. Reliable, thorough, and tailored to your schedule — so you can focus on what matters.
             </p>
 
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 40 }}>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 36 }}>
               <Link href="/book" style={{ background: L, color: N, fontWeight: 700, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block' }}>
                 Book a Clean
               </Link>
@@ -61,7 +57,6 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* service chips */}
             <div className="chips-grid">
               {[
                 { icon: '🧹', label: 'Standard Clean', from: 'From $99' },
@@ -70,7 +65,7 @@ export default function HomePage() {
                 { icon: '🔁', label: 'Recurring', from: 'Save up to 20%' },
               ].map((s) => (
                 <div key={s.label} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 14, padding: '13px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <span style={{ fontSize: 18 }}>{s.icon}</span>
+                  <span style={{ fontSize: 20 }}>{s.icon}</span>
                   <div>
                     <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff' }}>{s.label}</div>
                     <div style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>{s.from}</div>
@@ -81,8 +76,8 @@ export default function HomePage() {
           </div>
 
           {/* RIGHT */}
-          <div className="hero-right" style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', height: 340 }}>
+          <div className="hero-right" style={{ display: 'flex', flexDirection: 'column', gap: 14, padding: '40px 0', height: '100%', justifyContent: 'center' }}>
+            <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', flex: 1, minHeight: 380 }}>
               <img
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&q=80"
                 alt="Professional cleaner tidying a bright home"
@@ -105,7 +100,7 @@ export default function HomePage() {
                 { num: '<2 min', label: 'To book online' },
               ].map((s) => (
                 <div key={s.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 16, padding: '18px 20px' }}>
-                  <div style={{ fontWeight: 800, fontSize: '1.5rem', color: L, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.num}</div>
+                  <div style={{ fontWeight: 800, fontSize: '1.4rem', color: L, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.num}</div>
                   <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', marginTop: 6, fontWeight: 500 }}>{s.label}</div>
                 </div>
               ))}
@@ -137,18 +132,18 @@ export default function HomePage() {
           <div style={{ display: 'inline-block', background: '#E0FDF6', color: T, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '5px 12px', borderRadius: 100, marginBottom: 16 }}>
             Why TidyNest
           </div>
-          <h2 style={{ fontSize: 'clamp(2rem,4vw,2.8rem)', fontWeight: 800, color: N, letterSpacing: '-0.03em', maxWidth: 460, marginBottom: 52, lineHeight: 1.15 }}>
-            Cleaning you can <span style={{ color: T }}>count on</span>
+          <h2 style={{ fontSize: 'clamp(2rem,4vw,2.8rem)', fontWeight: 800, color: N, letterSpacing: '-0.03em', marginBottom: 52, lineHeight: 1.15 }}>
+            Cleaning you can <span style={{ color: T, whiteSpace: 'nowrap' }}>count on</span>
           </h2>
           <div className="why-grid">
             {[
-              { icon: '🔒', title: 'Fully insured', desc: 'Every team member is background-checked, trained, and fully insured for complete peace of mind.' },
-              { icon: '📅', title: 'Easy scheduling', desc: 'Book online in minutes. Choose your date, rooms, and extras — it takes under 2 minutes.' },
-              { icon: '🌿', title: 'Eco-friendly', desc: 'Safe, non-toxic products that are tough on grime and gentle on your family and pets.' },
-              { icon: '💬', title: '100% satisfaction', desc: "Not happy? Let us know within 24 hours and we'll make it right — no questions asked." },
+              { icon: '🔒', bg: '#FFF7ED', title: 'Fully insured', desc: 'Every team member is background-checked, trained, and fully insured for complete peace of mind.' },
+              { icon: '📅', bg: '#EFF6FF', title: 'Easy scheduling', desc: 'Book online in minutes. Choose your date, rooms, and extras — it takes under 2 minutes.' },
+              { icon: '🌿', bg: '#F0FDF4', title: 'Eco-friendly', desc: 'Safe, non-toxic products that are tough on grime and gentle on your family and pets.' },
+              { icon: '💬', bg: '#FDF4FF', title: '100% satisfaction', desc: "Not happy? Let us know within 24 hours and we'll make it right — no questions asked." },
             ].map((c) => (
               <div key={c.title} style={{ background: '#fff', border: '1px solid #E4E6EA', borderRadius: 20, padding: '28px 24px' }}>
-                <div style={{ width: 48, height: 48, borderRadius: 14, background: '#F6F7F9', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginBottom: 18 }}>{c.icon}</div>
+                <div style={{ width: 52, height: 52, borderRadius: 16, background: c.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26, marginBottom: 20 }}>{c.icon}</div>
                 <h4 style={{ fontWeight: 700, fontSize: '1rem', marginBottom: 10, color: N, letterSpacing: '-0.01em' }}>{c.title}</h4>
                 <p style={{ fontSize: '0.87rem', color: '#64748B', lineHeight: 1.65 }}>{c.desc}</p>
               </div>
@@ -172,7 +167,7 @@ export default function HomePage() {
               { i: 'MR', name: 'Marcus R.', role: 'Move-Out Clean', text: '"I used the move-out clean and got my full deposit back. Professional, fast, and incredibly thorough. Highly recommend."' },
               { i: 'JT', name: 'Jamie T.', role: 'Deep Clean', text: '"Love that I can add pet hair treatment. My house finally doesn\'t feel like a dog lives here — even though two do!"' },
             ].map((r) => (
-              <div key={r.name} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 20, padding: '32px 28px', display: 'flex', flexDirection: 'column', gap: 0 }}>
+              <div key={r.name} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 20, padding: '32px 28px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ fontSize: '0.82rem', letterSpacing: 2, color: L, marginBottom: 18 }}>★★★★★</div>
                 <p style={{ fontSize: '0.93rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.8, fontStyle: 'italic', marginBottom: 24, flex: 1 }}>{r.text}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.07)' }}>
