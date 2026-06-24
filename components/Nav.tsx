@@ -37,16 +37,16 @@ export default function Nav() {
         </span>
       </Link>
 
-      <ul className="hidden md:flex list-none items-center gap-2">
+      <ul className="hidden md:flex list-none items-center gap-1">
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
               className={cn(
-                'text-[0.88rem] font-medium no-underline px-4 py-2 rounded-lg transition-all duration-150',
+                'text-[0.95rem] font-medium no-underline px-5 py-2.5 rounded-lg transition-all duration-150',
                 pathname === link.href
                   ? 'text-white bg-white/10'
-                  : 'text-white/55 hover:text-white hover:bg-white/8'
+                  : 'text-white/70 hover:text-white hover:bg-white/8'
               )}
             >
               {link.label}

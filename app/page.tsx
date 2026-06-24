@@ -53,17 +53,20 @@ export default function HomePage() {
 
         {/* RIGHT — visual panel */}
         <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {/* main card */}
-          <div style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 28, padding: '40px 36px', backdropFilter: 'blur(10px)' }}>
-            <div style={{ fontSize: '3.5rem', marginBottom: 20 }}>🏡</div>
-            <h3 style={{ fontWeight: 800, fontSize: '1.4rem', color: '#fff', letterSpacing: '-0.02em', marginBottom: 12 }}>Your home, our expertise</h3>
-            <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 28 }}>
-              Trusted by 500+ homeowners. Every clean is backed by our 100% satisfaction guarantee.
-            </p>
-            <div style={{ display: 'flex', gap: 10 }}>
-              {['Insured', 'Background-checked', 'Eco-friendly'].map((tag) => (
-                <span key={tag} style={{ fontSize: '0.7rem', fontWeight: 600, color: T, background: 'rgba(0,201,167,0.12)', border: '1px solid rgba(0,201,167,0.25)', borderRadius: 100, padding: '4px 10px' }}>{tag}</span>
-              ))}
+          {/* main card — house photo */}
+          <div style={{ borderRadius: 28, overflow: 'hidden', position: 'relative', height: 300 }}>
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80"
+              alt="Clean modern living room"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+            {/* overlay badge */}
+            <div style={{ position: 'absolute', bottom: 20, left: 20, right: 20, background: 'rgba(8,15,26,0.75)', backdropFilter: 'blur(12px)', borderRadius: 16, padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#fff' }}>Every clean guaranteed</div>
+                <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', marginTop: 3 }}>100% satisfaction or we return free</div>
+              </div>
+              <div style={{ background: L, borderRadius: 10, padding: '8px 14px', fontWeight: 800, fontSize: '0.82rem', color: N, whiteSpace: 'nowrap' }}>4.9 ★</div>
             </div>
           </div>
 
