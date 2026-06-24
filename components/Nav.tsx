@@ -37,32 +37,45 @@ export default function Nav() {
         </span>
       </Link>
 
-      <ul className="hidden md:flex list-none items-center gap-3">
+      <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
         {links.map((link) => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className={cn(
-                'text-[1rem] font-medium no-underline px-5 py-2.5 rounded-lg transition-all duration-150 whitespace-nowrap',
-                pathname === link.href
-                  ? 'text-white bg-white/10'
-                  : 'text-white/70 hover:text-white hover:bg-white/8'
-              )}
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-        <li className="ml-4">
           <Link
-            href="/book"
-            className="text-[0.95rem] font-semibold no-underline rounded-full transition-all duration-150 hover:opacity-90 whitespace-nowrap"
-            style={{ background: '#D4FF47', color: '#080F1A', padding: '10px 24px', display: 'inline-block', lineHeight: 1.4 }}
+            key={link.href}
+            href={link.href}
+            style={{
+              fontSize: '1rem',
+              fontWeight: 500,
+              textDecoration: 'none',
+              padding: '8px 18px',
+              borderRadius: 8,
+              whiteSpace: 'nowrap',
+              color: pathname === link.href ? '#fff' : 'rgba(255,255,255,0.65)',
+              background: pathname === link.href ? 'rgba(255,255,255,0.1)' : 'transparent',
+              fontFamily: 'Outfit, sans-serif',
+            }}
           >
-            Book Now
+            {link.label}
           </Link>
-        </li>
-      </ul>
+        ))}
+        <Link
+          href="/book"
+          style={{
+            marginLeft: 16,
+            fontSize: '0.95rem',
+            fontWeight: 700,
+            textDecoration: 'none',
+            padding: '10px 26px',
+            borderRadius: 100,
+            whiteSpace: 'nowrap',
+            background: '#D4FF47',
+            color: '#080F1A',
+            fontFamily: 'Outfit, sans-serif',
+            display: 'inline-block',
+          }}
+        >
+          Book Now
+        </Link>
+      </div>
     </nav>
   )
 }
