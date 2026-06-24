@@ -1,65 +1,144 @@
-import Image from "next/image";
+import Link from 'next/link'
+import Footer from '@/components/Footer'
 
-export default function Home() {
+const N = '#080F1A'
+const L = '#D4FF47'
+const T = '#00C9A7'
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* ── HERO ── */}
+      <section style={{ background: N, minHeight: 'calc(100vh - 68px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '80px 5%' }}>
+        <div style={{ maxWidth: 820 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,255,71,0.12)', border: '1px solid rgba(212,255,71,0.25)', borderRadius: 100, padding: '6px 14px', marginBottom: 32 }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: L, display: 'inline-block' }} />
+            <span style={{ fontSize: '0.78rem', fontWeight: 600, color: L, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Professional Home Cleaning</span>
+          </div>
+          <h1 style={{ fontSize: 'clamp(3rem,7vw,5.5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 28 }}>
+            Your home,<br />
+            <span style={{ color: L }}>spotlessly</span> clean.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, maxWidth: 480, marginBottom: 44 }}>
+            Expert cleaners at your door. Reliable, thorough, and tailored to your schedule — so you can focus on what matters.
           </p>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <Link href="/book" style={{ background: L, color: N, fontWeight: 700, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block', transition: 'opacity 0.15s' }}>
+              Book a Clean
+            </Link>
+            <Link href="/services" style={{ background: 'rgba(255,255,255,0.07)', color: '#fff', fontWeight: 500, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block', border: '1px solid rgba(255,255,255,0.12)', transition: 'background 0.15s' }}>
+              See services
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* floating service chips */}
+        <div style={{ display: 'flex', gap: 12, marginTop: 64, flexWrap: 'wrap' }}>
+          {[
+            { icon: '🧹', label: 'Standard Clean', from: '$99' },
+            { icon: '✨', label: 'Deep Clean', from: '$179' },
+            { icon: '📦', label: 'Move-In / Out', from: '$249' },
+            { icon: '🔁', label: 'Recurring', from: 'Save 20%' },
+          ].map((s) => (
+            <div key={s.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)', borderRadius: 14, padding: '14px 20px', display: 'flex', alignItems: 'center', gap: 12 }}>
+              <span style={{ fontSize: 20 }}>{s.icon}</span>
+              <div>
+                <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#fff' }}>{s.label}</div>
+                <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.35)', marginTop: 1 }}>{s.from}</div>
+              </div>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* ── STATS ── */}
+      <section style={{ background: '#fff', borderBottom: '1px solid #E4E6EA' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '52px 5%', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 0 }}>
+          {[
+            { num: '500+', label: 'Happy clients' },
+            { num: '4.9★', label: 'Average rating' },
+            { num: '100%', label: 'Insured & vetted' },
+            { num: '3 hrs', label: 'Avg. clean time' },
+          ].map((s, i) => (
+            <div key={s.label} style={{ textAlign: 'center', borderLeft: i > 0 ? '1px solid #E4E6EA' : 'none', padding: '0 20px' }}>
+              <div style={{ fontSize: '2.4rem', fontWeight: 800, color: N, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.num}</div>
+              <div style={{ fontSize: '0.82rem', color: '#64748B', marginTop: 6, fontWeight: 500 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── WHY US ── */}
+      <section style={{ background: '#F6F7F9', padding: '100px 5%' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <div style={{ display: 'inline-block', background: '#E0FDF6', color: T, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '5px 12px', borderRadius: 100, marginBottom: 20 }}>
+            Why TidyNest
+          </div>
+          <h2 style={{ fontSize: 'clamp(2rem,4vw,2.8rem)', fontWeight: 800, color: N, letterSpacing: '-0.03em', maxWidth: 480, marginBottom: 56, lineHeight: 1.15 }}>
+            Cleaning you can <span style={{ color: T }}>count on</span>
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(230px,1fr))', gap: 20 }}>
+            {[
+              { icon: '🔒', title: 'Fully insured', desc: 'Every team member is background-checked, trained, and fully insured for complete peace of mind.' },
+              { icon: '📅', title: 'Easy scheduling', desc: 'Book online in minutes. Choose your date, rooms, and extras — it takes under 2 minutes.' },
+              { icon: '🌿', title: 'Eco-friendly', desc: 'Safe, non-toxic cleaning products that are tough on grime and gentle on your family and pets.' },
+              { icon: '💬', title: '100% satisfaction', desc: "Not happy? Let us know within 24 hours and we'll make it right — no questions asked." },
+            ].map((c) => (
+              <div key={c.title} style={{ background: '#fff', border: '1px solid #E4E6EA', borderRadius: 20, padding: '28px 24px', transition: 'box-shadow 0.2s, transform 0.2s' }}>
+                <div style={{ fontSize: 28, marginBottom: 16 }}>{c.icon}</div>
+                <h4 style={{ fontWeight: 700, fontSize: '1rem', marginBottom: 10, color: N, letterSpacing: '-0.01em' }}>{c.title}</h4>
+                <p style={{ fontSize: '0.87rem', color: '#64748B', lineHeight: 1.65 }}>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS ── */}
+      <section style={{ background: N, padding: '100px 5%' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <div style={{ display: 'inline-block', background: 'rgba(212,255,71,0.1)', color: L, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '5px 12px', borderRadius: 100, marginBottom: 20 }}>
+            Real reviews
+          </div>
+          <h2 style={{ fontSize: 'clamp(2rem,4vw,2.8rem)', fontWeight: 800, color: '#fff', letterSpacing: '-0.03em', marginBottom: 56, lineHeight: 1.15 }}>
+            What our clients <span style={{ color: L }}>are saying</span>
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 20 }}>
+            {[
+              { i: 'SL', name: 'Sarah L.', role: 'Recurring client', text: '"TidyNest completely transformed my house. Everything smelled fresh and looked brand new. I\'ve already booked monthly!"' },
+              { i: 'MR', name: 'Marcus R.', role: 'Move-Out Clean', text: '"I used the move-out clean and got my full deposit back. Professional, fast, and incredibly thorough. Highly recommend."' },
+              { i: 'JT', name: 'Jamie T.', role: 'Deep Clean', text: '"Love that I can add pet hair treatment. My house finally doesn\'t feel like a dog lives here — even though two do!"' },
+            ].map((r) => (
+              <div key={r.name} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, padding: '28px 24px' }}>
+                <div style={{ fontSize: '0.85rem', letterSpacing: 3, color: L, marginBottom: 16 }}>★★★★★</div>
+                <p style={{ fontSize: '0.92rem', color: 'rgba(255,255,255,0.7)', lineHeight: 1.75, fontStyle: 'italic', marginBottom: 20 }}>{r.text}</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <div style={{ width: 38, height: 38, borderRadius: '50%', background: L, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.8rem', color: N }}>{r.i}</div>
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: '0.88rem', color: '#fff' }}>{r.name}</div>
+                    <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.35)' }}>{r.role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA BANNER ── */}
+      <section style={{ background: L, padding: '80px 5%', textAlign: 'center' }}>
+        <h2 style={{ fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 800, color: N, letterSpacing: '-0.03em', marginBottom: 16 }}>
+          Ready for a cleaner home?
+        </h2>
+        <p style={{ fontSize: '1.05rem', color: 'rgba(8,15,26,0.6)', marginBottom: 36, fontWeight: 500 }}>
+          Book online in under 2 minutes. No commitment required.
+        </p>
+        <Link href="/book" style={{ background: N, color: '#fff', fontWeight: 700, fontSize: '1rem', padding: '16px 40px', borderRadius: 100, textDecoration: 'none', display: 'inline-block' }}>
+          Book Your Clean
+        </Link>
+      </section>
+
+      <Footer />
+    </>
+  )
 }
