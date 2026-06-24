@@ -9,25 +9,25 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ background: N, minHeight: 'calc(100vh - 68px)', display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', padding: '80px 5%', gap: 60 }}>
+      <section style={{ background: N, minHeight: 'calc(100vh - 68px)', display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', padding: '60px 5%', gap: 56 }}>
         {/* LEFT */}
-        <div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,255,71,0.12)', border: '1px solid rgba(212,255,71,0.25)', borderRadius: 100, padding: '6px 14px', marginBottom: 32 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(212,255,71,0.12)', border: '1px solid rgba(212,255,71,0.25)', borderRadius: 100, padding: '6px 14px', marginBottom: 24, alignSelf: 'flex-start' }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: L, display: 'inline-block' }} />
             <span style={{ fontSize: '0.78rem', fontWeight: 600, color: L, letterSpacing: '0.06em', textTransform: 'uppercase' }}>Professional Home Cleaning</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(2.8rem,5.5vw,5rem)', fontWeight: 800, color: '#fff', lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 24 }}>
+          <h1 style={{ fontSize: 'clamp(2.6rem,4.5vw,4.2rem)', fontWeight: 800, color: '#fff', lineHeight: 1.08, letterSpacing: '-0.03em', marginBottom: 20 }}>
             Your home,<br />
             <span style={{ color: L }}>spotlessly</span> clean.
           </h1>
-          <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, maxWidth: 440, marginBottom: 44 }}>
+          <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, maxWidth: 420, marginBottom: 32 }}>
             Expert cleaners at your door. Reliable, thorough, and tailored to your schedule — so you can focus on what matters.
           </p>
-          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 52 }}>
-            <Link href="/book" style={{ background: L, color: N, fontWeight: 700, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block' }}>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 36 }}>
+            <Link href="/book" style={{ background: L, color: N, fontWeight: 700, fontSize: '0.95rem', padding: '13px 30px', borderRadius: 100, textDecoration: 'none', display: 'inline-block' }}>
               Book a Clean
             </Link>
-            <Link href="/services" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', fontWeight: 600, fontSize: '0.95rem', padding: '14px 32px', borderRadius: 100, textDecoration: 'none', display: 'inline-block', border: '1px solid rgba(255,255,255,0.2)' }}>
+            <Link href="/services" style={{ background: 'rgba(255,255,255,0.12)', color: '#fff', fontWeight: 600, fontSize: '0.95rem', padding: '13px 30px', borderRadius: 100, textDecoration: 'none', display: 'inline-block', border: '1px solid rgba(255,255,255,0.28)' }}>
               See services
             </Link>
           </div>
@@ -40,11 +40,11 @@ export default function HomePage() {
               { icon: '📦', label: 'Move-In / Out', from: 'From $249' },
               { icon: '🔁', label: 'Recurring', from: 'Save up to 20%' },
             ].map((s) => (
-              <div key={s.label} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 14, padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div key={s.label} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.18)', borderRadius: 14, padding: '13px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
                 <span style={{ fontSize: 18 }}>{s.icon}</span>
                 <div>
-                  <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#fff' }}>{s.label}</div>
-                  <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', marginTop: 2 }}>{s.from}</div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: '#fff' }}>{s.label}</div>
+                  <div style={{ fontSize: '0.73rem', color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>{s.from}</div>
                 </div>
               </div>
             ))}
@@ -52,35 +52,34 @@ export default function HomePage() {
         </div>
 
         {/* RIGHT — visual panel */}
-        <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {/* main card — house photo */}
-          <div style={{ borderRadius: 28, overflow: 'hidden', position: 'relative', height: 300 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {/* photo */}
+          <div style={{ borderRadius: 24, overflow: 'hidden', position: 'relative', height: 320 }}>
             <img
-              src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=900&q=80"
-              alt="Professional cleaner at work"
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80"
+              alt="Bright clean living room"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
-            {/* overlay badge */}
-            <div style={{ position: 'absolute', bottom: 20, left: 20, right: 20, background: 'rgba(8,15,26,0.75)', backdropFilter: 'blur(12px)', borderRadius: 16, padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ position: 'absolute', bottom: 16, left: 16, right: 16, background: 'rgba(8,15,26,0.78)', backdropFilter: 'blur(12px)', borderRadius: 14, padding: '14px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ fontWeight: 700, fontSize: '0.92rem', color: '#fff' }}>Every clean guaranteed</div>
-                <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', marginTop: 3 }}>100% satisfaction or we return free</div>
+                <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#fff' }}>Every clean guaranteed</div>
+                <div style={{ fontSize: '0.76rem', color: 'rgba(255,255,255,0.5)', marginTop: 2 }}>100% satisfaction or we return free</div>
               </div>
-              <div style={{ background: L, borderRadius: 10, padding: '8px 14px', fontWeight: 800, fontSize: '0.82rem', color: N, whiteSpace: 'nowrap' }}>4.9 ★</div>
+              <div style={{ background: L, borderRadius: 10, padding: '7px 13px', fontWeight: 800, fontSize: '0.82rem', color: N, whiteSpace: 'nowrap' }}>4.9 ★</div>
             </div>
           </div>
 
-          {/* floating stat cards */}
+          {/* stat cards — all lime numbers */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {[
-              { num: '4.9★', label: 'Average rating', color: L },
-              { num: '500+', label: 'Homes cleaned', color: T },
-              { num: '100%', label: 'Satisfaction guarantee', color: '#A78BFA' },
-              { num: '<2 min', label: 'To book online', color: L },
+              { num: '4.9★', label: 'Average rating' },
+              { num: '500+', label: 'Homes cleaned' },
+              { num: '100%', label: 'Satisfaction guarantee' },
+              { num: '<2 min', label: 'To book online' },
             ].map((s) => (
-              <div key={s.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 18, padding: '20px 20px' }}>
-                <div style={{ fontWeight: 800, fontSize: '1.5rem', color: s.color, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.num}</div>
-                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.45)', marginTop: 6, fontWeight: 500 }}>{s.label}</div>
+              <div key={s.label} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 16, padding: '18px 20px' }}>
+                <div style={{ fontWeight: 800, fontSize: '1.5rem', color: L, letterSpacing: '-0.02em', lineHeight: 1 }}>{s.num}</div>
+                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', marginTop: 6, fontWeight: 500 }}>{s.label}</div>
               </div>
             ))}
           </div>
