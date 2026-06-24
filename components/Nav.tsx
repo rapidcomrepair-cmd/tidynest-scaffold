@@ -37,13 +37,13 @@ export default function Nav() {
         </span>
       </Link>
 
-      <ul className="hidden md:flex list-none items-center gap-1">
+      <ul className="hidden md:flex list-none items-center gap-3">
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
               className={cn(
-                'text-[0.95rem] font-medium no-underline px-5 py-2.5 rounded-lg transition-all duration-150',
+                'text-[1rem] font-medium no-underline px-5 py-2.5 rounded-lg transition-all duration-150 whitespace-nowrap',
                 pathname === link.href
                   ? 'text-white bg-white/10'
                   : 'text-white/70 hover:text-white hover:bg-white/8'
@@ -53,11 +53,11 @@ export default function Nav() {
             </Link>
           </li>
         ))}
-        <li className="ml-3">
+        <li className="ml-4">
           <Link
             href="/book"
-            className="text-[0.88rem] font-semibold no-underline px-5 py-2 rounded-full transition-all duration-150 hover:opacity-90"
-            style={{ background: '#D4FF47', color: '#080F1A' }}
+            className="text-[0.95rem] font-semibold no-underline rounded-full transition-all duration-150 hover:opacity-90 whitespace-nowrap"
+            style={{ background: '#D4FF47', color: '#080F1A', padding: '10px 24px', display: 'inline-block', lineHeight: 1.4 }}
           >
             Book Now
           </Link>
