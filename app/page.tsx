@@ -56,8 +56,8 @@ export default function HomePage() {
           {/* main card — house photo */}
           <div style={{ borderRadius: 28, overflow: 'hidden', position: 'relative', height: 300 }}>
             <img
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80"
-              alt="Clean modern living room"
+              src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=900&q=80"
+              alt="Professional cleaner at work"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
             {/* overlay badge */}
